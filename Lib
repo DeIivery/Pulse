@@ -1,0 +1,1828 @@
+local function CreateGui()
+    --[=[
+    Made with ObjectToCode v1.2.0 by TechHog8984
+    Report any bugs to the user above.
+    ]=]
+    local function _New_(a)local b=a[1];table.remove(a,1);local c=Instance.new(b);local d=a[1];if d then c.Parent=d;table.remove(a,1);end;for K,V in next,a do c[K]=V;end;return c;end;
+
+    --objects
+    local Pulse = _New_{"ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"),
+        Name = "Pulse",
+        ResetOnSpawn = false,
+        ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+    };
+
+    local Main = _New_{"Frame", Pulse,
+        BackgroundColor3 = Color3.fromRGB(50.00000461935997, 50.00000461935997, 50.00000461935997),
+        BorderSizePixel = 0,
+        Name = "Main",
+        Position = UDim2.new(0.5, -270, 0, 200),
+        Size = UDim2.new(0, 592, 0, 595),
+    };
+
+    local UICorner = _New_{"UICorner", Main,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Title = _New_{"TextLabel", Main,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Title",
+        Position = UDim2.new(0, 61, 0, 10),
+        Size = UDim2.new(1, -144, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Pulse",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextScaled = true,
+        TextSize = 23,
+        TextWrapped = true,
+    };
+
+    local UICorner_0 = _New_{"UICorner", Title,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Body = _New_{"Frame", Main,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Body",
+        Position = UDim2.new(0, 10, 0, 72),
+        Size = UDim2.new(1, -20, 1, -82),
+    };
+
+    local UICorner_1 = _New_{"UICorner", Body,
+        CornerRadius = UDim.new(0, 7),
+    };
+
+    local Inner = _New_{"Frame", Body,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Inner",
+        Position = UDim2.new(0, 5, 0, 5),
+        Size = UDim2.new(1, -10, 1, -10),
+    };
+
+    local UICorner_2 = _New_{"UICorner", Inner,
+        CornerRadius = UDim.new(0, 7),
+    };
+
+    local Tab = _New_{"ScrollingFrame", Inner,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        BorderSizePixel = 0,
+        Name = "Tab",
+        Position = UDim2.new(0, 0, 0, 7),
+        Selectable = false,
+        Size = UDim2.new(1, 0, 1, -7),
+        CanvasSize = UDim2.new(0, 0, 0, 0),
+        ScrollBarThickness = 5,
+    };
+
+    local Info = _New_{"TextLabel", Tab,
+        BackgroundColor3 = Color3.fromRGB(76.0000030696392, 76.0000030696392, 76.0000030696392),
+        BorderSizePixel = 0,
+        Name = "Info",
+        Size = UDim2.new(0, 36, 0, 20),
+        Visible = false,
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Info",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_3 = _New_{"UICorner", Info,
+        CornerRadius = UDim.new(0, 4),
+    };
+
+    local Dropdown = _New_{"TextButton", Tab,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Dropdown",
+        Position = UDim2.new(0, 7, 0, 348),
+        Selectable = false,
+        Size = UDim2.new(1, -14, 0, 74),
+        ClipsDescendants = true,
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Dropdown",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+        TextYAlignment = Enum.TextYAlignment.Top,
+    };
+
+    local UICorner_4 = _New_{"UICorner", Dropdown,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Expand = _New_{"TextLabel", Dropdown,
+        Active = true,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9300000071525574,
+        BorderSizePixel = 0,
+        Name = "Expand",
+        Position = UDim2.new(1, -24, 0, 2),
+        Rotation = 1890,
+        Selectable = true,
+        Size = UDim2.new(0, 22, 0, 22),
+        Font = Enum.Font.Code,
+        FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 26,
+    };
+
+    local UICorner_5 = _New_{"UICorner", Expand,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local TEXT = _New_{"TextLabel", Expand,
+        Active = true,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        BorderSizePixel = 0,
+        Name = "TEXT",
+        Position = UDim2.new(0, 0, 0, 7),
+        Selectable = true,
+        Size = UDim2.new(0, 22, 0, 17),
+        Font = Enum.Font.Code,
+        FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "^",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 26,
+    };
+
+    local UICorner_6 = _New_{"UICorner", TEXT,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Container = _New_{"Frame", Dropdown,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9599999785423279,
+        Name = "Container",
+        Position = UDim2.new(0, 7, 0, 34),
+        Size = UDim2.new(1, -14, 1, -40),
+    };
+
+    local UICorner_7 = _New_{"UICorner", Container,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Item = _New_{"TextButton", Container,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9599999785423279,
+        Name = "Item",
+        Position = UDim2.new(0, 3, 0, 6),
+        Size = UDim2.new(1, -6, 0, 24),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 18,
+    };
+
+    local UICorner_8 = _New_{"UICorner", Item,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local ColorPicker = _New_{"TextButton", Tab,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "ColorPicker",
+        Position = UDim2.new(0, 7, 0, 183),
+        Selectable = false,
+        Size = UDim2.new(1, -14, 0, 158),
+        ClipsDescendants = true,
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Color Picker",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+        TextYAlignment = Enum.TextYAlignment.Top,
+    };
+
+    local UICorner_9 = _New_{"UICorner", ColorPicker,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local WheelHolder = _New_{"Frame", ColorPicker,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9399999976158142,
+        BorderSizePixel = 0,
+        Name = "WheelHolder",
+        Position = UDim2.new(0, 10, 0, 28),
+        Size = UDim2.new(0, 120, 0, 120),
+    };
+
+    local UICorner_10 = _New_{"UICorner", WheelHolder,
+        CornerRadius = UDim.new(0, 50),
+    };
+
+    local Wheel = _New_{"ImageButton", WheelHolder,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        Name = "Wheel",
+        Position = UDim2.new(0, 5, 0, 5),
+        Size = UDim2.new(1, -10, 1, -10),
+        Image = "http://www.roblox.com/asset/?id=6020299385",
+    };
+
+    local Picker = _New_{"TextLabel", Wheel,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        BorderColor3 = Color3.fromRGB(27.000000290572643, 42.000001296401024, 53.00000064074993),
+        Name = "Picker",
+        Position = UDim2.new(0.5, -6, 0.5, -6),
+        Size = UDim2.new(0, 12, 0, 12),
+        Font = Enum.Font.SourceSans,
+        FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(0, 0, 0),
+        TextSize = 14,
+        TextTransparency = 1,
+    };
+
+    local UICorner_11 = _New_{"UICorner", Picker,
+        CornerRadius = UDim.new(1, 0),
+    };
+
+    local UIStroke = _New_{"UIStroke", Picker,
+        ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+    };
+
+    local BrightnessHolder = _New_{"Frame", ColorPicker,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9399999976158142,
+        BorderSizePixel = 0,
+        Name = "BrightnessHolder",
+        Position = UDim2.new(0, 140, 0, 28),
+        Size = UDim2.new(0, 30, 0, 120),
+    };
+
+    local UICorner_12 = _New_{"UICorner", BrightnessHolder,
+        CornerRadius = UDim.new(0, 50),
+    };
+
+    local Slider = _New_{"TextButton", BrightnessHolder,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        Name = "Slider",
+        Position = UDim2.new(0, 5, 0, 5),
+        Selectable = false,
+        Size = UDim2.new(1, -10, 1, -10),
+        Text = "",
+    };
+
+    local UICorner_13 = _New_{"UICorner", Slider,
+        CornerRadius = UDim.new(0, 50),
+    };
+
+    local UIGradient = _New_{"UIGradient", Slider,
+        Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))},
+        Rotation = 90,
+    };
+
+    local Picker_0 = _New_{"TextLabel", Slider,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        BorderColor3 = Color3.fromRGB(27.000000290572643, 42.000001296401024, 53.00000064074993),
+        Name = "Picker",
+        Position = UDim2.new(0.5, -6, 0, 6),
+        Size = UDim2.new(0, 12, 0, 12),
+        Font = Enum.Font.SourceSans,
+        FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(0, 0, 0),
+        TextSize = 14,
+        TextTransparency = 1,
+    };
+
+    local UICorner_14 = _New_{"UICorner", Picker_0,
+        CornerRadius = UDim.new(1, 0),
+    };
+
+    local UIStroke_0 = _New_{"UIStroke", Picker_0,
+        ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+    };
+
+    local Expand_0 = _New_{"TextLabel", ColorPicker,
+        Active = true,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9300000071525574,
+        BorderSizePixel = 0,
+        Name = "Expand",
+        Position = UDim2.new(1, -24, 0, 2),
+        Rotation = 1890,
+        Selectable = true,
+        Size = UDim2.new(0, 22, 0, 22),
+        Font = Enum.Font.Code,
+        FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 26,
+    };
+
+    local UICorner_15 = _New_{"UICorner", Expand_0,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local TEXT_0 = _New_{"TextLabel", Expand_0,
+        Active = true,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 1,
+        BorderSizePixel = 0,
+        Name = "TEXT",
+        Position = UDim2.new(0, 0, 0, 7),
+        Selectable = true,
+        Size = UDim2.new(0, 22, 0, 17),
+        Font = Enum.Font.Code,
+        FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "^",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 26,
+    };
+
+    local UICorner_16 = _New_{"UICorner", TEXT_0,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Slider_0 = _New_{"TextLabel", Tab,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Slider",
+        Position = UDim2.new(0, 7, 0, 140),
+        Size = UDim2.new(1, -14, 0, 36),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Slider",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+        TextYAlignment = Enum.TextYAlignment.Top,
+    };
+
+    local UICorner_17 = _New_{"UICorner", Slider_0,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Bar = _New_{"Frame", Slider_0,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Bar",
+        Position = UDim2.new(0, 5, 1, -15),
+        Size = UDim2.new(1, -10, 0, 10),
+    };
+
+    local UICorner_18 = _New_{"UICorner", Bar,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Slide = _New_{"Frame", Bar,
+        Active = true,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Slide",
+        Selectable = true,
+        Size = UDim2.new(0, 0, 0, 10),
+    };
+
+    local UICorner_19 = _New_{"UICorner", Slide,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Toggle = _New_{"TextButton", Tab,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Toggle",
+        Position = UDim2.new(0, 7, 0, 106),
+        Selectable = false,
+        Size = UDim2.new(1, -14, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Toggle",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_20 = _New_{"UICorner", Toggle,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local icon = _New_{"ImageLabel", Toggle,
+        Active = true,
+        BackgroundTransparency = 1,
+        LayoutOrder = 9,
+        Name = "icon",
+        Selectable = true,
+        Size = UDim2.new(0, 26, 0, 26),
+        ZIndex = 2,
+        Image = "rbxassetid://3926305904",
+        ImageRectOffset = Vector2.new(84, 204),
+        ImageRectSize = Vector2.new(36, 36),
+    };
+
+    local Status = _New_{"TextLabel", Toggle,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Status",
+        Position = UDim2.new(1, -34, 0, 2),
+        Size = UDim2.new(0, 32, 0, 22),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_21 = _New_{"UICorner", Status,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Status_0 = _New_{"TextLabel", Status,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Status",
+        Position = UDim2.new(0, 2, 0, 2),
+        Size = UDim2.new(0, 18, 0, 18),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_22 = _New_{"UICorner", Status_0,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Box = _New_{"TextBox", Tab,
+        Active = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Box",
+        Position = UDim2.new(0, 7, 0, 73),
+        Selectable = false,
+        Size = UDim2.new(1, -14, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        PlaceholderText = "Box",
+        Text = "",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_23 = _New_{"UICorner", Box,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local icon_0 = _New_{"ImageButton", Box,
+        BackgroundTransparency = 1,
+        LayoutOrder = 10,
+        Name = "icon",
+        Size = UDim2.new(0, 26, 0, 26),
+        ZIndex = 2,
+        Image = "rbxassetid://6764432293",
+        ImageRectOffset = Vector2.new(100, 0),
+        ImageRectSize = Vector2.new(100, 100),
+    };
+
+    local Button = _New_{"TextButton", Tab,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Button",
+        Position = UDim2.new(0, 7, 0, 40),
+        Selectable = false,
+        Size = UDim2.new(1, -14, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_24 = _New_{"UICorner", Button,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local icon_1 = _New_{"ImageLabel", Button,
+        Active = true,
+        BackgroundTransparency = 1,
+        LayoutOrder = 9,
+        Name = "icon",
+        Selectable = true,
+        Size = UDim2.new(0, 26, 0, 26),
+        ZIndex = 2,
+        Image = "rbxassetid://3926305904",
+        ImageRectOffset = Vector2.new(84, 204),
+        ImageRectSize = Vector2.new(36, 36),
+    };
+
+    local Label = _New_{"TextLabel", Tab,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Label",
+        Position = UDim2.new(0, 7, 0, 7),
+        Size = UDim2.new(1, -14, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_25 = _New_{"UICorner", Label,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local UIListLayout = _New_{"UIListLayout", Tab,
+        Padding = UDim.new(0, 7),
+        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+        SortOrder = Enum.SortOrder.LayoutOrder,
+    };
+
+    local Keybind = _New_{"TextButton", Tab,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Keybind",
+        Position = UDim2.new(1, -34, 0, 2),
+        Selectable = false,
+        Size = UDim2.new(0, 22, 0, 22),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "A",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 20,
+    };
+
+    local UICorner_26 = _New_{"UICorner", Keybind,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Settings = _New_{"Frame", Body,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Settings",
+        Position = UDim2.new(0, 5, 0, 5),
+        Size = UDim2.new(1, -10, 1, -10),
+        Visible = false,
+    };
+
+    local UICorner_27 = _New_{"UICorner", Settings,
+        CornerRadius = UDim.new(0, 7),
+    };
+
+    local TabButtons = _New_{"Frame", Main,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "TabButtons",
+        Position = UDim2.new(0, 10, 0, 43),
+        Size = UDim2.new(1.0270270109176636, -36, -0.005042016971856356, 26),
+    };
+
+    local UICorner_28 = _New_{"UICorner", TabButtons,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Tab_0 = _New_{"TextButton", TabButtons,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderColor3 = Color3.fromRGB(27.000000290572643, 42.000001296401024, 53.00000064074993),
+        BorderSizePixel = 0,
+        Name = "Tab",
+        Position = UDim2.new(0, 3, 0, 3),
+        Selectable = false,
+        Size = UDim2.new(0, 50, 0, 17),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "Tab",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 18,
+        TextTransparency = 0.19999998807907104,
+    };
+
+    local UICorner_29 = _New_{"UICorner", Tab_0,
+        CornerRadius = UDim.new(0, 4),
+    };
+
+    local Close = _New_{"TextButton", Main,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Close",
+        Position = UDim2.new(1, -36, 0, 10),
+        Selectable = false,
+        Size = UDim2.new(0, 26, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "X",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 23,
+    };
+
+    local UICorner_30 = _New_{"UICorner", Close,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Minimize = _New_{"TextButton", Main,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Minimize",
+        Position = UDim2.new(1, -67, 0, 10),
+        Selectable = false,
+        Size = UDim2.new(0, 26, 0, 26),
+        Font = Enum.Font.Nunito,
+        FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+        Text = "-",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 23,
+    };
+
+    local UICorner_31 = _New_{"UICorner", Minimize,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+    local Settings_0 = _New_{"ImageButton", Main,
+        Active = false,
+        AutoButtonColor = false,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = 0.9200000166893005,
+        BorderSizePixel = 0,
+        Name = "Settings",
+        Position = UDim2.new(0, 10, 0, 10),
+        Selectable = false,
+        Size = UDim2.new(0, 26, 0, 26),
+        Image = "rbxassetid://1204397029",
+    };
+
+    local UICorner_32 = _New_{"UICorner", Settings_0,
+        CornerRadius = UDim.new(0, 6),
+    };
+
+
+    return Pulse;
+end;
+
+local Connection = {};
+Connection.__index = Connection;
+Connection.__tostring = function(self)
+	return self.Name;
+end;
+
+Connection.new = function(Event, Func, Once)
+	return setmetatable({Name = Event.Name .. ".Connection", Event = Event, Func = Func, Once = Once}, Connection);
+end;
+
+Connection.Disconnect = function(self)
+	table.remove(self.Event._connections, table.find(self.Event._connections, self));
+end;
+
+
+local Event = {};
+Event.__index = Event;
+Event.__tostring = function(self)
+	return self.Name;
+end;
+
+Event.new = function(Name)
+	return setmetatable({Name = Name or "Event", _connections={}, _waits={}}, Event);
+end;
+
+Event.Connect = function(self, Func)
+	local connection = Connection.new(self, Func);
+	table.insert(self._connections, connection);
+	return connection;
+end;
+Event.Fire = function(self, ...)
+	local Args = {...};
+	task.spawn(function()
+		for I, Con in next, self._connections do
+			Con.Func(unpack(Args));
+		end;
+	end);
+end;
+
+local UIS = game:GetService("UserInputService");
+local MouseMovement = Enum.UserInputType.MouseMovement;
+local MouseButton1 = Enum.UserInputType.MouseButton1;
+local Touch = Enum.UserInputType.Touch;
+
+local End = Enum.UserInputState.End;
+local Begin = Enum.UserInputState.Begin;
+
+local Pass = Enum.ContextActionResult.Pass;
+local Sink = Enum.ContextActionResult.Sink;
+
+local clamp = math.clamp;
+local round = math.round;
+local abs = math.abs;
+local pi = math.pi;
+local pi2 = pi*2;
+local atan2 = math.atan2;
+
+local Black = Color3.new(0,0,0);
+
+
+local DefaultSize = UDim2.fromOffset(589, 503);
+
+local TweenService = game:GetService'TweenService';
+local tscreate = TweenService.Create;
+
+local Part = Instance.new'Part';local twplay = tscreate(TweenService, Part, TweenInfo.new(0), {Transparency = 0}).Play;Part:Destroy();
+local function CreateTween(...)
+	return tscreate(TweenService, ...);
+end;
+local function PlayTween(...)
+	local first = (...);
+	if (pcall(function() return first.TweenInfo end)) then
+		return twplay(TweenService, first);
+	end;
+	twplay(tscreate(TweenService, ...));
+end;
+
+local ApplyDownAndUpAnimationsTINFO = TweenInfo.new(0.1, Enum.EasingStyle.Sine);
+local function ApplyDownAndUpAnimations(Obj)
+    Obj.MouseButton1Down:Connect(function()
+        PlayTween(Obj, ApplyDownAndUpAnimationsTINFO, {BackgroundTransparency = 0.97});
+    end);
+    Obj.MouseButton1Up:Connect(function()
+        PlayTween(Obj, ApplyDownAndUpAnimationsTINFO, {BackgroundTransparency = 0.92});
+    end);
+end;
+local ApplyEnterAndLeaveAnimationsTINFO = ApplyDownAndUpAnimationsTINFO;
+local function ApplyEnterAndLeaveAnimations(Obj)
+    Obj.MouseEnter:Connect(function()
+		PlayTween(Obj, ApplyEnterAndLeaveAnimationsTINFO, {BackgroundTransparency = 0.97});
+	end);
+	Obj.MouseLeave:Connect(function()
+		PlayTween(Obj, ApplyEnterAndLeaveAnimationsTINFO, {BackgroundTransparency = 0.92});
+	end);
+end;
+
+local function CreateClass(init, properties)
+    local Class = properties or {};
+    Class.__index = Class;
+
+    local construct = function(t)
+        return setmetatable(t, Class);
+    end;
+
+    Class.new = function(...)
+        return init(construct, ...);
+    end;
+
+    return Class;
+end;
+
+local function parseArgs(args, expected)
+    local parsed = {};
+
+    for i,v in next, expected do
+        parsed[v[1]] = args[i];
+
+        if not parsed[i] then
+            parsed[i] = v.Default;
+        end;
+    end;
+
+    return parsed;
+end;
+
+local function CreateObjectClass(init, Type, expected, properties)
+    return CreateClass(function(_construct, Tab, ...)
+        local Inst = Tab.Gui[Type]:Clone();
+        local object = parseArgs({...}, expected);
+        object.Type = Type;
+        object.Inst = Inst;
+        object.Tab = Tab;
+        object.Gui = Tab.Gui;
+
+        Inst.Parent = Tab.Frame;
+        if #Tab.Objects > 0 then
+            object.Index = #Tab.Objects + 1;
+            local Before = Tab.Objects[#Tab.Objects].Inst;
+            Inst.Position = UDim2.fromOffset(Inst.Position.X.Offset, Before.Position.Y.Offset + Before.Size.Y.Offset + 7);
+        else
+            object.Index = 1;
+        end;
+        
+        _construct(object);
+        init(object);
+        Tab:UpdateCanvasSize();
+
+        Tab.Objects[object.Index] = object;
+
+        return object;
+    end, properties);
+end;
+
+local function dragSlider(Slider, XPos)
+    local X = clamp((XPos - Slider.Bar.AbsolutePosition.X) / Slider.Bar.AbsoluteSize.X, 0, 1);
+    local Div = ((Slider.Max / Slider.Inc) * 4);
+
+    local Size = UDim2.fromScale((round(X * Div) / Div), 1);
+    return Size, round(
+        (
+            (
+                (Size.X.Scale * Slider.Max) / Slider.Max
+            ) * (
+                Slider.Max - Slider.Min
+            ) + Slider.Min
+        ) * 20
+    ) / 20;
+end;
+local function dragSliderInt(Slider, Int)
+
+    local XScale = Int;
+    -- XScale *= 20;
+    -- XScale /= 20;
+    XScale -= Slider.Min;
+    XScale /= (Slider.Max - Slider.Min);
+    -- XScale *= Slider.Max;
+    -- XScale /= Slider.Max;
+
+    return UDim2.fromScale(XScale, 1);
+
+end;
+local function updateColor(ColorPicker, Center, AbsPos, AbsSize)
+    local PAbsPos = ColorPicker.Wheel.Picker.AbsolutePosition;
+    local PAbsSize = ColorPicker.Wheel.Picker.AbsoluteSize / 2;
+
+    local NewCenter = Vector2.new(PAbsPos.X + PAbsSize.X, PAbsPos.Y + PAbsSize.Y);
+    
+    local Hue = (pi - atan2(NewCenter.Y - Center.Y, NewCenter.X - Center.X)) / pi2;
+    local Saturation = (Center - NewCenter).Magnitude / (AbsSize.X);
+    local Value = abs((ColorPicker.Slider.Picker.AbsolutePosition.Y - ColorPicker.Slider.AbsolutePosition.Y) / ColorPicker.Slider.AbsoluteSize.Y - 1);
+
+    local Color = Color3.fromHSV(clamp(Hue, 0, 1), math.clamp(Saturation, 0, 1), math.clamp(Value, 0, 1));
+
+    ColorPicker.Slider.UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color), ColorSequenceKeypoint.new(1, Black)};
+    return Color;
+end;
+
+local GML = UIS.GetMouseLocation;
+local GuiInset = game:GetService("GuiService"):GetGuiInset().Y;
+local function getMousePos()
+    return GML(UIS) - Vector2.new(0, GuiInset);
+end;
+
+local CAS = game:GetService("ContextActionService");
+local KeyCodeItems = Enum.KeyCode:GetEnumItems();
+
+local ColorPickerTINFO = TweenInfo.new(0.2, 8);
+local ObjectClasses = {}; do
+    local function UpdateText(self, Text)
+        assert(type(Text) == "string", "Expected string for Text");
+
+        self.Text = Text;
+        self.Inst.Text = self.Text;
+        return self;
+    end;
+    local function UpdateCallback(self, Callback)
+        local t = type(Callback);
+        assert(t == "function", "Exepected function for Callback");
+        self.Callback = Callback;
+        return self;
+    end
+
+    local KeybindExpected = {
+        {
+            "Key",
+            Default = Enum.KeyCode.E
+        },
+        {"Callback"},
+        {"Text"};
+    };
+    local Keybind = CreateClass(function(_construct, Parent, ...)
+        local Tab = Parent.Tab;
+        local Inst = Tab.Gui.Keybind:Clone();
+        local object = parseArgs({...}, KeybindExpected);
+        object.CanPress = true;
+        object.Inst = Inst;
+        object.Parent = Parent;
+        object.Tab = Tab;
+        object.Gui = Tab.Gui;
+        object.Callback = object.Callback or Parent.OnClick or Parent.Callback;
+        Inst.Parent = Parent.Inst;
+
+        Inst.Text = object.Key.Name;
+
+        if Parent.Type == "Toggle" then
+            Inst.Position = Parent.Inst.Status.Position - UDim2.fromOffset(24, 0);
+        else
+            Inst.Position = UDim2.new(1, -24, 0, 2);
+        end;
+
+        Inst.MouseButton1Click:Connect(function()
+            Inst.Text = ". . .";
+            
+            object.Selected = true;
+            object.CanPress = false;
+            Tab.Gui.CurrentKeybind = object;
+            CAS:BindAction("PulseKeybind", Tab.Gui.KeybindAction, false, unpack(KeyCodeItems));
+        end);
+
+        ApplyDownAndUpAnimations(Inst);
+        ApplyEnterAndLeaveAnimations(Inst);
+        table.insert(Tab.Gui.Keybinds, object);
+        return _construct(object);
+    end, {
+        
+    });
+    local function AddKeybind(...)
+        return Keybind.new(...);
+    end;
+
+    local function CheckBounds(self)
+        local Frame = self.Tab.Frame;
+
+        local FramePos = Frame.AbsolutePosition;
+        local Pos = self.Inst.AbsolutePosition;
+
+        local Below, Above = (Pos.Y < FramePos.Y + Frame.AbsoluteSize.Y), (Pos.Y + self.Inst.AbsoluteSize.Y > FramePos.Y);
+        -- local Above2, Below2 = (Pos.Y < FramePos.Y), (Pos.Y + self.Inst.AbsoluteSize.Y > FramePos.Y + Frame.AbsoluteSize.Y);
+        return Below and Above, Below, Above--[[, Above2, Below2]];
+    end;
+    local function FixBounds(self)
+        if self:CheckBounds() then
+            self.Expand.TEXT.TextTransparency = 0;
+        else
+            self.Expand.TEXT.TextTransparency = 1;
+        end;
+    end;
+
+    ObjectClasses = {
+        Label = CreateObjectClass(function(self)
+            self.Text = self.Text or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+        end, "Label", {
+            {
+                "Name",
+                Default = "Label"
+            },
+            {"Text"},
+        }, {
+            UpdateText = UpdateText
+        }),
+
+        Button = CreateObjectClass(function(self)
+            self.Text = self.Text or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+
+            ApplyDownAndUpAnimations(self.Inst);
+            ApplyEnterAndLeaveAnimations(self.Inst);
+
+            self.Inst.MouseButton1Click:Connect(function()
+                if not self.Callback then return;end;
+                task.spawn(self.Callback);
+            end);
+        end, "Button", {
+            {
+                "Name",
+                Default = "Button"
+            },
+            {"Callback"},
+            {"Text"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+            
+            AddKeybind = AddKeybind;
+        }),
+
+        Box = CreateObjectClass(function(self)
+            self.PlaceholderText = self.PlaceholderText or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.PlaceholderText = self.PlaceholderText;
+
+            ApplyEnterAndLeaveAnimations(self.Inst);
+            
+            self.Inst.FocusLost:Connect(function(EP)
+                if not self.Callback then return;end;
+
+                task.spawn(self.Callback, self.Inst.Text, EP);
+            end);
+        end, "Box", {
+            {
+                "Name",
+                Default = "Box"
+            },
+            {"Callback"},
+            {"PlaceholderText"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+            UpdatePlaceholderText = function(self, Text)
+                assert(type(Text) == "string", "Expected string for Text");
+                self.PlaceholderText = Text;
+                self.Inst.PlaceholderText = Text;
+
+                return self;
+            end;
+        }),
+
+        Toggle = CreateObjectClass(function(self)
+            self.Status = false;
+            self.Text = self.Text or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+            self.StatusDisplay = self.Inst.Status.Status;
+
+            ApplyDownAndUpAnimations(self.Inst);
+            ApplyEnterAndLeaveAnimations(self.Inst);
+
+            self.OnClick = function(Status)
+                if type(Status) == "boolean" then
+                    self.Status = Status;
+                else
+                    self.Status = not self.Status;
+                end;
+
+                PlayTween(self.StatusDisplay, ApplyDownAndUpAnimationsTINFO, {Position = (self.Status and UDim2.new(1, -18, 0, 2)) or UDim2.fromOffset(2,2)});
+                if not self.Callback then return;end;
+                task.spawn(self.Callback, self.Status);
+            end;
+            self.Inst.MouseButton1Click:Connect(self.OnClick);
+        end, "Toggle", {
+            {
+                "Name",
+                Default = "Toggle"
+            },
+            {"Callback"},
+            {"Text"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+            UpdateStatus = function(self, Status)
+                assert(type(Status) == "boolean", "Expected boolean for Status");
+                -- self.Status = Status;
+                self.OnClick(Status);
+
+                return self;
+            end,
+            
+            AddKeybind = AddKeybind;
+        }),
+
+        Slider = CreateObjectClass(function(self)
+            self.Text = self.Text or self.Name;
+            self.Value = self.Min;
+
+            self.Inc = self.Inc and (self.Max / ((self.Max - self.Min) / (self.Inc * 4))) or
+                                    (self.Max >= 50 and self.Max / ((self.Max - self.Min) / 4)) or
+                                    (self.Max >= 25 and self.Max / ((self.Max - self.Min) / 2)) or
+                                    (self.Max / (self.Max - self.Min));
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+            self.Bar = self.Inst.Bar;
+
+            self.Inst.Text = self.Text .. " : " .. tostring(self.Value) .. "/" .. tostring(self.Max);
+
+            ApplyEnterAndLeaveAnimations(self.Inst);
+
+            self.Dragging = false;
+
+            self.Bar.InputBegan:Connect(function(Input)
+                if Input.UserInputType == MouseButton1 then
+                    self.Dragging = true;
+                    self.Gui.CurrentSlider = self;
+                    
+                    local Con; Con = Input.Changed:Connect(function()
+                        if Input.UserInputState == End then
+                            self.Dragging = false;
+                            self.Gui.CurrentSlider = nil;
+                            Con:Disconnect();
+                        end;
+                    end);
+                end;
+            end);
+        end, "Slider", {
+            {
+                "Name",
+                Default = "Slider"
+            },
+            {"Callback"},
+            {
+                "Min",
+                Default = 0
+            },
+            {
+                "Max",
+                Default = 100
+            },
+            {
+                "Inc",
+                Default = 1
+            },
+            {"Text"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+            UpdateValue = function(self, Value)
+                assert(type(Value) == "number", "expected 'number' for value, got " .. tostring(Value));
+                self.Value = Value;
+                self.Bar.Slide.Size = dragSliderInt(self, Value);
+                self.Inst.Text = self.Text .. " : " .. tostring(self.Value) .. "/" .. tostring(self.Max);
+            end
+        }),
+
+        ColorPicker = CreateObjectClass(function(self)
+            self.Text = self.Text or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+
+            ApplyDownAndUpAnimations(self.Inst);
+            ApplyEnterAndLeaveAnimations(self.Inst);
+
+            self.WheelHolder = self.Inst.WheelHolder;
+            self.BrightnessHolder = self.Inst.BrightnessHolder;
+
+            self.Wheel = self.WheelHolder.Wheel;
+            self.Slider = self.BrightnessHolder.Slider;
+
+            self.Expand = self.Inst.Expand;
+
+            self.Expand.Rotation = 90;
+            self.Inst.Size = UDim2.new(1, -14, 0, 26);
+
+            self.WheelHolder.Transparency = 1;
+            self.BrightnessHolder.Transparency = 1;
+
+            self.Wheel.ImageTransparency = 1;
+            self.Wheel.Picker.UIStroke.Transparency = 1;
+
+            self.Slider.UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(1, 1)};
+            self.Slider.Picker.UIStroke.Transparency = 1;
+
+            self.Expanded = false;
+
+            self.SizeDifference = (158 - 26);
+            self.Inst.MouseButton1Click:Connect(function()
+                self.Expanded = not self.Expanded;
+                
+                PlayTween(self.Expand, ColorPickerTINFO, {Rotation = (self.Expanded and 180) or 90});
+                PlayTween(self.Inst, ColorPickerTINFO, {Size = UDim2.new(1, -14, 0, (self.Expanded and 158) or 26)});
+                -- PlayTween(self.Tab.Frame, ColorPickerTINFO, {CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset)});
+                
+                PlayTween(self.WheelHolder, ColorPickerTINFO, {Transparency = (self.Expanded and 0.94) or 1});
+                PlayTween(self.BrightnessHolder, ColorPickerTINFO, {Transparency = (self.Expanded and 0.94) or 1});
+                PlayTween(self.Wheel, ColorPickerTINFO, {ImageTransparency = (self.Expanded and 0) or 1});
+                
+            end);
+            self.Wheel:GetPropertyChangedSignal("ImageTransparency"):Connect(function()
+                local Transparency = self.Wheel.ImageTransparency;
+                
+                self.Wheel.Picker.UIStroke.Transparency = Transparency;
+                
+                self.Slider.UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0, Transparency), NumberSequenceKeypoint.new(1, Transparency)};
+                self.Slider.Picker.UIStroke.Transparency = Transparency;
+            end);
+
+            self.Inst:GetPropertyChangedSignal("Size"):Connect(function()
+                self.Tab:UpdateCanvasSize();
+                -- PlayTween(self.Tab, TweenInfo.new(), {CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset)});
+                -- self.Tab.Frame.CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset - self.Inst.Size.Y.Offset);
+                
+                -- local Valid, Below, Above = self:CheckBounds();
+                -- if Below or Above then
+                --     self.Tab.Frame.CanvasPosition = Vector2.new(0, self.Inst.Position.Y);
+                -- end;
+
+                -- print(self:CheckBounds());
+                -- if self.Expanded and ({self:CheckBounds()})[5] then
+                --     print(self.Inst);
+                --     self.Tab.Frame.CanvasPosition = Vector2.new(0, self.Tab.Frame.UIListLayout.AbsoluteContentSize.Y - self.Inst.Size.Y.Offset);
+                -- end;
+            end);
+
+            self.Wheel.InputBegan:Connect(function(Input)
+                if Input.UserInputType ~= MouseButton1 then return;end;
+                self.WheelDown = true;
+                self.Gui.CurrentColorPicker = self;
+                local Con; Con = Input.Changed:Connect(function()
+                    if Input.UserInputState == End then
+                        self.WheelDown = false;
+                        self.Gui.CurrentColorPicker = nil;
+                        Con:Disconnect();
+                    end;
+                end);
+
+                local MousePos = getMousePos();
+                local AbsPos, AbsSize = self.Wheel.AbsolutePosition, self.Wheel.AbsoluteSize/2;
+                local Center = Vector2.new(AbsPos.X + AbsSize.X, AbsPos.Y + AbsSize.Y);
+
+                if (MousePos - Center).Magnitude <= AbsSize.X then
+                    self.Wheel.Picker.Position = UDim2.fromOffset(MousePos.X - AbsPos.X, MousePos.Y - AbsPos.Y);
+                end;
+                self.Color = updateColor(self, Center, AbsPos, AbsSize);
+
+                if not self.Callback then return;end;
+                task.spawn(self.Callback, self.Color);
+            end);
+            self.Slider.InputBegan:Connect(function(Input)
+                if Input.UserInputType ~= MouseButton1 then return;end;
+                self.SliderMoving = true;
+                self.Gui.CurrentColorPicker = self;
+                local Con; Con = Input.Changed:Connect(function()
+                    if Input.UserInputState == End then
+                        self.SliderMoving = false;
+                        self.Gui.CurrentColorPicker = nil;
+                        Con:Disconnect();
+                    end;
+                end);
+
+                local MousePos = getMousePos();
+                local AbsPos, AbsSize = self.Wheel.AbsolutePosition, self.Wheel.AbsoluteSize/2;
+                local Center = Vector2.new(AbsPos.X + AbsSize.X, AbsPos.Y + AbsSize.Y);
+
+                self.Slider.Picker.Position = UDim2.new(0.5, -6, 0, clamp(MousePos.Y - self.Slider.AbsolutePosition.Y, 0, self.Slider.AbsoluteSize.Y));
+                self.Color = updateColor(self, Center, AbsPos, AbsSize);
+
+                if not self.Callback then return;end;
+                task.spawn(self.Callback, self.Color);
+            end);
+
+            table.insert(self.Tab.ObjectsWithExpand, self);
+            self:FixBounds();
+        end, "ColorPicker", {
+            {
+                "Name",
+                Default = "ColorPicker"
+            },
+            {"Callback"},
+            -- {
+            --     "Default",
+            --     Default = Color3.new(1,1,1)
+            -- },
+            {"Text"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+
+            CheckBounds = CheckBounds,
+            FixBounds = FixBounds;
+        }),
+
+        Dropdown = CreateObjectClass(function(self)
+            self.Text = self.Text or self.Name;
+
+            self.Inst.Name = self.Name;
+            self.Inst.Text = self.Text;
+
+            self.Container = self.Inst.Container;
+            self.Expand = self.Inst.Expand;
+
+            self.ItemButtons = {};
+
+            for I, Item in next, self.Items do
+                self:AddItem(Item);
+            end;
+            self.Size = (26 + 14 + (27 * #self.Items));
+            self.SizeDifference = (self.Size - 26);
+            
+            ApplyDownAndUpAnimations(self.Inst);
+            ApplyEnterAndLeaveAnimations(self.Inst);
+            
+            self.Expand.Rotation = 90;
+            self.Inst.Size = UDim2.new(1, -14, 0, 26);
+            self.Container.BackgroundTransparency = 1;
+
+            self.Expanded = false;
+            self.Inst.MouseButton1Click:Connect(function()
+                self.Expanded = not self.Expanded;
+                self:UpdateExpanded(self.Expanded);
+            end);
+
+            self.Inst:GetPropertyChangedSignal("Size"):Connect(function()
+                self.Tab:UpdateCanvasSize();
+                -- PlayTween(self.Tab, TweenInfo.new(), {CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset)});
+                -- self.Tab.Frame.CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset - self.Inst.Size.Y.Offset);
+                
+                -- local Valid, Below, Above = self:CheckBounds();
+                -- if Below or Above then
+                --     self.Tab.Frame.CanvasPosition = Vector2.new(0, self.Inst.Position.Y);
+                -- end;
+            end);
+
+            table.insert(self.Tab.ObjectsWithExpand, self);
+            self:FixBounds();
+        end, "Dropdown", {
+            {
+                "Name",
+                Default = "Dropdown"
+            },
+            {"Callback"},
+            {
+                "Items",
+                Default = {
+                    "You forgot to add items"
+                }
+            },
+            {"Default"},
+            {"Text"}
+        }, {
+            UpdateText = UpdateText,
+            UpdateCallback = UpdateCallback,
+            UpdateItems = function(self, Items)
+                assert(type(Items) == "table", "Expected table for Items");
+                for I, Button in next, self.ItemButtons do
+                    Button:Destroy();
+                end;
+                self.ItemButtons = {};
+
+                self.Items = Items;
+                self.Size = (26 + 14 + (27 * #self.Items));
+                self.SizeDifference = (self.Size - 26);
+                for I, Item in next, Items do
+                    self:AddItem(Item);
+                end;
+
+                if self.Expanded then
+                    PlayTween(self.Inst, ColorPickerTINFO, {Size = UDim2.new(1, -14, 0, self.Size)});
+
+                    self.Tab:UpdateCanvasSize();
+                    -- PlayTween(self.Tab.Frame, ColorPickerTINFO, {CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset)});
+                end;
+
+                return self;
+            end,
+            UpdateExpanded = function(self, Expanded)
+                assert(type(Expanded) == "boolean", "Expected boolean for Expanded");
+
+                PlayTween(self.Expand, ColorPickerTINFO, {Rotation = (Expanded and 180) or 90});
+                PlayTween(self.Inst, ColorPickerTINFO, {Size = UDim2.new(1, -14, 0, (Expanded and self.Size) or 26)});
+                -- PlayTween(self.Tab.Frame, ColorPickerTINFO, {CanvasPosition = Vector2.new(0, self.Inst.Position.Y.Offset)});
+                PlayTween(self.Container, ColorPickerTINFO, {BackgroundTransparency = (Expanded and 0.96) or 1});
+
+                for I, Button in next, self.ItemButtons do
+                    PlayTween(Button, ColorPickerTINFO, {BackgroundTransparency = (Expanded and 0.96) or 1, TextTransparency = (Expanded and 0.2) or 1})
+                end;
+
+                return self;
+            end,
+
+            AddItem = function(self, Item)
+                local Button = self.Gui.DropdownItem:Clone();
+                Button.Name = tostring(Item);
+                Button.Text = tostring(Item);
+                Button.Parent = self.Container;
+                Button.BackgroundTransparency = (self.Expanded and 0.96) or 1;
+                Button.TextTransparency = (self.Expanded and 0.2) or 1;
+
+                Button.MouseEnter:Connect(function()
+                    PlayTween(Button, ColorPickerTINFO, {TextTransparency = 0});
+                end);
+                Button.MouseLeave:Connect(function()
+                    PlayTween(Button, ColorPickerTINFO, {TextTransparency = 0.2});
+                end);
+                ApplyDownAndUpAnimations(Button);
+                Button.MouseButton1Click:Connect(function()
+                    self:SelectItem(Item)
+                end);
+
+                if #self.ItemButtons > 0 then
+                    local Before = self.ItemButtons[#self.ItemButtons];
+                    Button.Position = UDim2.fromOffset(3, 3 + Before.Position.Y.Offset + Before.Size.Y.Offset);
+                end;
+
+                table.insert(self.ItemButtons, Button);
+
+                return self;
+            end,
+
+            SelectItem = function(self, Item)
+                self.Selected = Item;
+                self.Inst.Text = self.Text .. " : " .. tostring(Item);
+
+                self.Expanded = false;
+                self:UpdateExpanded(false);
+                if not self.Callback then return;end;
+                task.spawn(self.Callback, Item);
+            end,
+
+            CheckBounds = CheckBounds,
+            FixBounds = FixBounds;
+        }),
+    };
+end;
+
+local ShowTabTINFO = ApplyDownAndUpAnimationsTINFO;
+local ShowTabPROPERTIES = {TextTransparency = 0};
+
+local HideTabTINFO = ApplyDownAndUpAnimationsTINFO;
+local HideTabPROPERTIES = {TextTransparency = 0.2};
+
+local function ApplyDrag(Gui)
+    local Frame = Gui.MainFrame;
+
+    local dragToggle = nil;
+	local dragSpeed = 0.25;
+	local dragInput = nil;
+	local dragStart = nil;
+	local startPos = nil;
+
+    local TInfo = TweenInfo.new(dragSpeed, 8);
+    
+	Frame.InputBegan:Connect(function(Input)
+		if not (Input.UserInputType == MouseButton1 or Input.UserInputType == Touch) or Gui.CurrentSlider or Gui.CurrentColorPicker then return;end;
+
+        dragToggle = true;
+        dragStart = Input.Position;
+        startPos = Frame.Position;
+        Input.Changed:Connect(function()
+            if (Input.UserInputState == End) then
+                dragToggle = false;
+            end;
+        end);
+	end);
+	
+	Frame.InputChanged:Connect(function(Input)
+		if (Input.UserInputType == MouseMovement or Input.UserInputType == Touch) then
+			dragInput = Input;
+		end;
+	end);
+	
+	UIS.InputChanged:Connect(function(Input)
+		if Input == dragInput and dragToggle then
+			local Delta = Input.Position - dragStart;
+            PlayTween(Frame, TInfo, {Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)});
+		end;
+	end);
+end;
+
+local Tab = CreateClass(function(_construct, Gui, Name)
+    local TabFrame = Gui.Tab:Clone();
+    local TabButton = Gui.TabButton:Clone();
+    
+    local tab = {
+        Name = Name or "Tab",
+        Gui = Gui,
+        Objects = {},
+        ObjectsWithExpand = {},
+        Frame = TabFrame,
+        Button = TabButton;
+    };
+    
+    TabFrame.Name = Name;
+    TabFrame.Parent = Gui.Inner;
+    
+    TabButton.Name = Name;
+    TabButton.Parent = Gui.TabButtons;
+    TabButton.Text = Name;
+    TabButton.Size = UDim2.fromOffset(TabButton.TextBounds.X + 5, TabButton.TextBounds.Y);
+    tab.ButtonSize = TabButton.Size;
+    
+    ApplyDownAndUpAnimations(TabButton);
+    TabButton.MouseButton1Click:Connect(function()
+        if Gui.SelectedTab == tab and not Gui.SettingsOpened then return;end;
+        Gui:SelectTab(tab);
+    end);
+    
+    if #Gui.Tabs > 0 then
+        local Before = Gui.Tabs[#Gui.Tabs].Button;
+        TabButton.Position = UDim2.fromOffset(Before.Position.X.Offset + Before.Size.X.Offset + 5, Before.Position.Y.Offset);
+    end;
+    table.insert(Gui.Tabs, tab);
+
+    TabFrame.Changed:Connect(function(P)
+        if P ~= "CanvasPosition" and P ~= "CanvasSize" and P ~= "Size" then return;end;
+        for I, object in next, tab.ObjectsWithExpand do
+            object:FixBounds();
+        end;
+    end);
+    
+    _construct(tab);
+    tab:hide();
+    if not Gui.SelectedTab then Gui:SelectTab(tab);end;
+
+    return tab;
+end, {show = function(self)
+        PlayTween(self.Button, ShowTabTINFO, ShowTabPROPERTIES);
+        self.Frame.Visible = true;
+    end, hide = function(self)
+        PlayTween(self.Button, HideTabTINFO, HideTabPROPERTIES);
+        self.Frame.Visible = false;
+    end,
+    UpdateCanvasSize = function(self)
+        self.Frame.CanvasSize = UDim2.fromOffset(0, self.Frame.UIListLayout.AbsoluteContentSize.Y);
+    end;
+});
+for Name, Class in next, ObjectClasses do
+    Tab["New" .. Name] = Class.new;
+end;
+
+local MinimizeTInfo = TweenInfo.new(0.6, 8);
+local Gui = CreateClass(function(_construct, Name, Size, DontProtect)
+    local OnClose = Event.new("OnClose");
+
+    local Inst = CreateGui();
+    if DontProtect ~= false then 
+        if gethui then
+            Inst.Parent = gethui();
+        else
+            syn.protect_gui(Inst);
+            Inst.Parent=game:GetService("CoreGui");
+        end;
+    end;
+    local MainFrame = Inst.Main;
+    local Body = MainFrame.Body;
+    local SettingsFrame = Body.Settings;
+    local CloseButton = MainFrame.Close;
+    local MinimizeButton = MainFrame.Minimize;
+    local SettingsButton = MainFrame.Settings;
+
+    local Inner = Body.Inner;
+    local Tab = Inner.Tab;Tab.Parent = nil;Tab.CanvasSize = UDim2.fromOffset(0, 200);
+
+    local Label = Tab.Label;Label.Parent = nil;
+    local Button = Tab.Button;Button.Parent = nil;
+    local Box = Tab.Box;Box.Parent = nil;
+    local Toggle = Tab.Toggle;Toggle.Parent = nil;
+    local Slider = Tab.Slider;Slider.Parent = nil;
+    local ColorPicker = Tab.ColorPicker;ColorPicker.Parent = nil;
+    local Dropdown = Tab.Dropdown;Dropdown.Parent = nil;
+    local DropdownItem = Dropdown.Container.Item;DropdownItem.Parent = nil;
+    local Keybind = Tab.Keybind;Keybind.Parent = nil;
+
+    local TabButtons = MainFrame.TabButtons;
+    local TabButton = TabButtons.Tab;TabButton.Parent = nil;
+
+    local gui = {
+        Active = true,
+        OnClose = OnClose,
+        Minimized = false,
+        SettingsOpened = false,
+        Hidden = false,
+        
+        Name = Name or "GUI",
+        Size = Size or DefaultSize,
+        Inst = Inst,
+
+        Tabs = {},
+        Keybinds = {},
+
+        MainFrame = MainFrame,
+        Body = Body,
+        SettingsFrame = SettingsFrame,
+        CloseButton = CloseButton,
+        MinimizeButton = MinimizeButton,
+        SettingsButton = SettingsButton,
+
+        Inner = Inner,
+        Tab = Tab,
+
+        Label = Label,
+        Button = Button,
+        Box = Box,
+        Toggle = Toggle,
+        Slider = Slider,
+        ColorPicker = ColorPicker,
+        Dropdown = Dropdown,
+        DropdownItem = DropdownItem,
+        Keybind = Keybind,
+
+        TabButtons = TabButtons,
+        TabButton = TabButton;
+    };
+    Inst.Name = gui.Name;
+    MainFrame.Title.Text = gui.Name;
+    MainFrame.Size = gui.Size;
+
+    gui.UISChangedCon1 = UIS.InputChanged:Connect(function(Input)
+        if not gui.Active or not gui.CurrentSlider or Input.UserInputType ~= MouseMovement then return;end;
+        local CurrentSlider = gui.CurrentSlider;
+
+        CurrentSlider.Bar.Slide.Size, CurrentSlider.Value = dragSlider(CurrentSlider, Input.Position.X);
+        CurrentSlider.Inst.Text = CurrentSlider.Text .. " : " .. tostring(CurrentSlider.Value) .. "/" .. tostring(CurrentSlider.Max);
+        if not CurrentSlider.Callback then return;end;
+        task.spawn(CurrentSlider.Callback, CurrentSlider.Value);
+    end);
+    gui.UISChangedCon2 = UIS.InputChanged:Connect(function(Input)
+        if not gui.Active or not gui.CurrentColorPicker or Input.UserInputType ~= MouseMovement then return;end;
+        local ColorPicker = gui.CurrentColorPicker;
+
+        local MousePos = getMousePos();
+        local AbsPos, AbsSize = ColorPicker.Wheel.AbsolutePosition, ColorPicker.Wheel.AbsoluteSize/2;
+        local Center = Vector2.new(AbsPos.X + AbsSize.X, AbsPos.Y + AbsSize.Y);
+        
+        if ColorPicker.SliderMoving then
+            ColorPicker.Slider.Picker.Position = UDim2.new(0.5, -6, 0, clamp(MousePos.Y - ColorPicker.Slider.AbsolutePosition.Y, 0, ColorPicker.Slider.AbsoluteSize.Y));
+        elseif (MousePos - Center).Magnitude <= AbsSize.X and ColorPicker.WheelDown then
+            ColorPicker.Wheel.Picker.Position = UDim2.fromOffset(MousePos.X - AbsPos.X, MousePos.Y - AbsPos.Y);
+        end;
+
+        ColorPicker.Color = updateColor(ColorPicker, Center, AbsPos, AbsSize);
+        if not ColorPicker.Callback then return;end;
+        task.spawn(ColorPicker.Callback, ColorPicker.Color);
+    end);
+    gui.KeybindAction = function(Action, InputState, Input)
+        local Keybind = gui.CurrentKeybind;
+        if not gui.Active or not Keybind or not Keybind.Selected or Action ~= "PulseKeybind" or InputState ~= Begin or not Input.KeyCode then return Pass;end;
+        
+        CAS:UnbindAction("PulseKeybind");
+        Keybind.Selected = false;
+        Keybind.Key = Input.KeyCode;
+        Keybind.Inst.Text = Keybind.Key.Name;
+
+        return Sink;
+    end;
+    gui.UISBeganCon = UIS.InputBegan:Connect(function(Input, GPE)
+        if not gui.Active or GPE then return;end;
+
+        for I, Keybind in next, gui.Keybinds do
+            if not Keybind or not Keybind.Callback or not Keybind.Key or Input.KeyCode ~= Keybind.Key then continue;end;
+            local Called = false;
+            local Con; Con = Input.Changed:Connect(function()
+                if not Called and Input.UserInputState == End then
+                    if Keybind.CanPress then
+                        task.spawn(Keybind.Callback, Keybind);
+                    else
+                        Keybind.CanPress = true;
+                    end;
+                    Con:Disconnect();
+                end;
+            end);
+        end;
+    end);
+
+    _construct(gui);
+    ApplyDrag(gui);
+
+    ApplyDownAndUpAnimations(CloseButton);
+    ApplyEnterAndLeaveAnimations(CloseButton);
+    CloseButton.MouseButton1Click:Connect(function()
+        gui:Destroy(true);
+    end);
+    
+    ApplyDownAndUpAnimations(MinimizeButton);
+    ApplyEnterAndLeaveAnimations(MinimizeButton);
+    MinimizeButton.MouseButton1Click:Connect(function()
+        gui:ToggleMinimize();
+    end);
+
+    gui:SetupSettings();
+    ApplyDownAndUpAnimations(SettingsButton);
+    ApplyEnterAndLeaveAnimations(SettingsButton);
+    SettingsButton.MouseButton1Click:Connect(function()
+        gui:ToggleSettings();
+    end);
+    
+    return gui;
+end, {
+    Destroy = function(self, ButtonClicked)
+        if not self.Active then return;end;
+        self.Active = false;
+
+        if self.Inst then
+            self.Inst:Destroy();
+        end;
+        if self.OnClose then
+            self.OnClose:Fire(ButtonClicked);
+        end;
+        if self.UISChangedCon1 then
+            self.UISChangedCon1:Disconnect();
+        end;
+        if self.UISChangedCon2 then
+            self.UISChangedCon2:Disconnect();
+        end;
+        if self.UISBeganCon then
+            self.UISBeganCon:Disconnect();
+        end;
+    end,
+    NewTab = function(self, ...)
+        return Tab.new(self, ...);
+    end,
+    SelectTab = function(self, tab)
+        if self.SelectedTab then self.SelectedTab:hide();end;
+        self.SettingsOpened = false;self:OpenSettings(false);
+        self.SelectedTab = tab;
+        tab:show();
+    end,
+
+    ToggleMinimize = function(self)
+        self.Minimized = not self.Minimized;
+        self:Minimize(self.Minimized);
+    end,
+    Minimize = function(self, Minimized)
+        self.MinimizeButton.Text = (Minimized and "+") or "-";
+        PlayTween(self.MainFrame, MinimizeTInfo, {Size = (Minimized and UDim2.fromOffset(self.Size.X.Offset, 46)) or self.Size});
+        PlayTween(self.TabButtons, MinimizeTInfo, {Size = (Minimized and UDim2.new(1, -36, 0, 0) or UDim2.new(1, -36, 0, 26))});
+        PlayTween(self.Body, MinimizeTInfo, {Size = (Minimized and UDim2.new(1, -20, 0, 0) or UDim2.new(1, -20, 1, -82))});
+        PlayTween(self.Inner, MinimizeTInfo, {Size = (Minimized and UDim2.new(1, -10, 0, 0) or UDim2.new(1, -10, 1, -10))});
+        PlayTween(self.SettingsFrame, MinimizeTInfo, {Size = (Minimized and UDim2.new(1, -10, 0, 0) or UDim2.new(1, -10, 1, -10))});
+
+        local TabButtonTextTransparency = (Minimized and 1) or 0;
+        for I, tab in next, self.Tabs do
+            PlayTween(tab.Frame, MinimizeTInfo, {Size = (Minimized and UDim2.fromScale(1, 0)) or UDim2.new(1, 0, 1, -7), ScrollBarImageTransparency = TabButtonTextTransparency});
+
+            local Button = tab.Button;
+            local Size = tab.ButtonSize;
+            PlayTween(Button, MinimizeTInfo, {Size = (Minimized and UDim2.fromOffset(Size.X.Offset, 0)) or Size, TextTransparency = TabButtonTextTransparency});
+
+            for I, object in next, tab.ObjectsWithExpand do
+                object.Expand.TEXT.TextTransparency = TabButtonTextTransparency;
+            end;
+        end;
+
+        PlayTween(self.SettingsTab.Frame, MinimizeTInfo, {Size = (Minimized and UDim2.fromScale(1, 0)) or UDim2.new(1, 0, 1, -7), ScrollBarImageTransparency = TabButtonTextTransparency});
+
+        local Button = self.SettingsTab.Button;
+        local Size = self.SettingsTab.ButtonSize;
+        PlayTween(Button, MinimizeTInfo, {Size = (Minimized and UDim2.fromOffset(Size.X.Offset, 0)) or Size, TextTransparency = TabButtonTextTransparency});
+
+        for I, object in next, self.SettingsTab.ObjectsWithExpand do
+            object.Expand.TEXT.TextTransparency = TabButtonTextTransparency;
+        end;
+    end,
+
+    ToggleHidden = function(self)
+        self.Hidden = not self.Hidden;
+        self:Hide(self.Hidden);
+    end,
+    Hide = function(self, Hidden)
+        self.MainFrame.Visible = not Hidden;
+    end,
+
+    SetupSettings = function(self)
+        local SettingsTab = self:NewTab("Settings");
+        SettingsTab.Button:Destroy();
+        SettingsTab.Frame.Parent = self.SettingsFrame;
+
+        -- SettingsTab:NewButton("Minimize Gui"):AddKeybind(Enum.KeyCode.RightControl, function()
+        --     self:ToggleMinimize();
+        -- end);
+        SettingsTab:NewButton("Hide Gui"):AddKeybind(Enum.KeyCode.RightControl, function()
+            self:ToggleHidden();
+        end);
+        SettingsTab:NewColorPicker("Gui Color", function(color)
+            self.MainFrame.BackgroundColor3 = color;
+        end);
+
+        self.SelectedTab = nil;
+        table.remove(self.Tabs, 1);
+        self.SettingsTab = SettingsTab;
+    end,
+    ToggleSettings = function(self)
+        self.SettingsOpened = not self.SettingsOpened;
+        self:OpenSettings(self.SettingsOpened);
+    end,
+    OpenSettings = function(self, Opened)
+        self.Inner.Visible = not Opened;
+        self.SettingsFrame.Visible = Opened;
+    end,
+
+    UpdateName = function(self, Name)
+        self.Name = Name;
+        self.Inst.Name = Name;
+        self.MainFrame.Title.Text = Name;
+    end,
+    UpdateSize = function(self, Size)
+        self.Size = Size;
+        self.MainFrame.Size = Size;
+    end;
+});
+Gui.destroy = Gui.Destroy;
+Gui.Close = Gui.Destroy;
+Gui.close = Gui.Destroy;
+
+return Gui;
