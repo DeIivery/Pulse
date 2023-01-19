@@ -1,0 +1,146 @@
+local Pulse = {
+    Active = true,
+    Name = "\aPulse_By_TechHog#8984\a",
+
+    findFirstChild = game.FindFirstChild,
+    findFirstChildWhichIsA = game.FindFirstChildWhichIsA,
+    waitForChild = game.WaitForChild,
+
+    getChildren = game.getChildren,
+};
+
+local function getThenDestroy(Type, Key)
+    local O = Instance.new(Type);
+    local V = O[Key];
+
+    O:Destroy();
+    return V;
+end;
+
+function Pulse.init()
+    Pulse.Old = shared[Pulse.Name];
+    Pulse.destroyOld();
+    
+    Pulse.Event = (assert(loadstring(game:HttpGet"https://gitlab.com/te4224/Scripts/-/raw/main/Chrysalism/V1/event.lua"), "failed to get event")());
+    Pulse.OnDestroy = Pulse.Event.new();
+
+    Pulse.Connections = {};
+    Pulse.Services = {};
+    Pulse.LocalPlayer = Pulse.getService("Players").LocalPlayer;
+
+    shared[Pulse.Name] = Pulse;
+
+    Pulse.fireServer=getThenDestroy("RemoteEvent", "FireServer");
+    Pulse.invokeServer=getThenDestroy("RemoteFunction", "InvokeServer");
+    Pulse._moveTo=getThenDestroy("Model", "MoveTo");
+    
+    Pulse.UI = Pulse.import("UILIB/V1/main.lua");
+
+    Pulse.UIWindow = Pulse.UI.new("Pulse - Loading...");
+    Pulse.UIWindow.OnClose:Connect(function(ButtonClicked)
+        if not ButtonClicked then return;end;
+        Pulse.destroy();
+    end);
+
+    Pulse.import("GetClosestPlayers.lua");
+
+    --load the current game
+    Pulse.GameId = game.GameId;
+    local Suc, Res = pcall(Pulse.import, "games/" .. tostring(Pulse.GameId) .. "/main.lua");
+    if Suc then
+        Pulse.GameInfo = Pulse.import("games/" .. tostring(Pulse.GameId) .. "/info.lua");
+        Pulse.UIWindow:UpdateName("Pulse - " .. Pulse.GameInfo.Name);
+    elseif type(Res) == "string" then
+        if Res:match("No such file or directory") then
+            --no game found, load universal
+            Pulse.UIWindow:UpdateName("Pulse Universal");
+            Pulse.import("games/Universal/main.lua");
+
+            return;
+        end;
+
+        error(tostring(Res));
+    end;
+
+    -- print("Initialized Pulse!");
+end;
+
+function Pulse.destroy()
+    if not Pulse.Active then return;end;
+    shared[Pulse.Name] = nil;
+    Pulse.Active = false;
+
+    if Pulse.UIWindow then
+        Pulse.UIWindow:Destroy();
+    end;
+    for I, Con in next, Pulse.Connections do
+        Con:Disconnect();
+    end;
+
+    Pulse.OnDestroy:Fire();
+end;
+
+function Pulse.destroyOld()
+    local Old = Pulse.Old;
+    if not Old then return;end;
+
+    Old.destroy();
+end;
+
+function Pulse.getService(Name)
+    if not Pulse.Services[Name] then
+        Pulse.Services[Name] = game:GetService(Name);
+    end;
+    return Pulse.Services[Name] or error(tostring(Name) .. " is not a valid service");
+end;
+function Pulse.moveTo(Position)
+    local C = Pulse.LocalPlayer.Character;
+    if not C or not Pulse.findFirstChild(C, "Humanoid") then return;end;
+
+    Pulse._moveTo(C, Position);
+end;
+
+
+local Connection = {};
+Connection.__index = Connection;
+Connection.__tostring = function(self)
+	return self.Name;
+end;
+
+Connection.new = function(Event, Func, Once)
+	return setmetatable({Name = Event.Name .. ".Connection", Event = Event, Func = Func, Once = Once}, Connection);
+end;
+
+Connection.Disconnect = function(self)
+	table.remove(self.Event._connections, table.find(self.Event._connections, self));
+end;
+
+
+local Event = {};
+Event.__index = Event;
+Event.__tostring = function(self)
+	return self.Name;
+end;
+
+Event.new = function(Name)
+	return setmetatable({Name = Name or "Event", _connections={}, _waits={}}, Event);
+end;
+
+Event.Connect = function(self, Func)
+	local connection = Connection.new(self, Func);
+	table.insert(self._connections, connection);
+	return connection;
+end;
+Event.Fire = function(self, ...)
+	local Args = {...};
+    for I, Con in next, self._connections do
+        Con.Func(unpack(Args));
+    end;
+end;
+
+Pulse.Event = Event;
+
+-- print("Loaded Pulse!");
+
+return Pulse;
+
